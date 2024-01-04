@@ -71,20 +71,20 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Public\OpenGL\include;C:\Users\Public\OpenGL\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Public\OpenGL\lib;C:\Users\Public\OpenGL\lib;$(LibraryPath);$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Public\ASSIMP\Source\assimp\include\assimp;C:\Users\Public\OpenGL\include;C:\Users\Public\OpenGL\include;$(IncludePath);C:\Users\Public\Assimp\Source\assimp\include;C:\Users\Public\Assimp\Binaries\include;$(IncludePath);C:\Users\Public\ASSIMP\Binaries\include\assimp;C:\Users\evils\source\repos\glStuff\glStuff;C:\Users\Public\ASSIMP\Binaries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Public\ASSIMP\Binaries\lib\Release;C:\Users\Public\OpenGL\lib;C:\Users\Public\OpenGL\lib;$(LibraryPath);$(LibraryPath);C:\Users\Public\Assimp\Binaries\lib\Release;$(LibraryPath);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Public\OpenGL\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>C:\Users\Public\OpenGL\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Public\ASSIMP\Source\assimp\include\assimp;C:\Users\Public\OpenGL\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;C:\Users\Public\Assimp\Source\assimp\include;C:\Users\Public\Assimp\Binaries\include;$(IncludePath);C:\Users\Public\ASSIMP\Binaries\include\assimp;C:\Users\evils\source\repos\glStuff\glStuff;C:\Users\Public\ASSIMP\Binaries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Public\ASSIMP\Binaries\lib\Release;C:\Users\Public\OpenGL\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(LibraryPath);C:\Users\Public\Assimp\Binaries\lib\Release;$(LibraryPath);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\Public\OpenGL\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>C:\Users\Public\OpenGL\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Public\ASSIMP\Source\assimp\include\assimp;C:\Users\Public\OpenGL\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;C:\Users\Public\Assimp\Source\assimp\include;C:\Users\Public\Assimp\Binaries\include;$(IncludePath);C:\Users\Public\ASSIMP\Binaries\include\assimp;C:\Users\evils\source\repos\glStuff\glStuff;C:\Users\Public\ASSIMP\Binaries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Public\ASSIMP\Binaries\lib\Release;C:\Users\Public\OpenGL\lib;$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(LibraryPath);C:\Users\Public\Assimp\Binaries\lib\Release;$(LibraryPath);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>C:\Users\Public\OpenGL\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
-    <LibraryPath>C:\Users\Public\OpenGL\lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Public\ASSIMP\Source\assimp\include\assimp;C:\Users\Public\OpenGL\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);;C:\Users\Public\Assimp\Source\assimp\include;C:\Users\Public\Assimp\Binaries\include;$(IncludePath);C:\Users\Public\ASSIMP\Binaries\include\assimp;C:\Users\evils\source\repos\glStuff\glStuff;C:\Users\Public\ASSIMP\Binaries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Public\ASSIMP\Binaries\lib\Release;C:\Users\Public\OpenGL\lib;$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(LibraryPath);C:\Users\Public\Assimp\Binaries\lib\Release;$(LibraryPath);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -96,6 +96,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -112,6 +113,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -124,7 +126,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -141,13 +143,17 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="shaders\LoadShaders.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\Public\OpenGL\include\learnopengl\stb_image.h" />
+    <ClInclude Include="main.h" />
     <ClInclude Include="shaders\LoadShaders.h" />
   </ItemGroup>
   <ItemGroup>
