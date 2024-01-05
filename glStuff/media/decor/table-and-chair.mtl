@@ -1,0 +1,24 @@
+# Blender 3.5.0 MTL File: 'table-and-chair.blend'
+# www.blender.org
+
+newmtl Material.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.076544 0.020089 0.006746
+Ks 0.500000 0.500000 0.500000
+Ke 0.013410 0.013410 0.013410
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd wood.png
+
+newmtl Material.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.612108 1.000000 0.073934
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd darkWood.png

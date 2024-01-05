@@ -69,8 +69,8 @@ int main()
     //Initialisation of GLFW
     glfwInit();
     //Initialisation of 'GLFWwindow' object
-    windowWidth = 1280;
-    windowHeight = 720;
+    windowWidth = 1920;
+    windowHeight = 1080;
     GLFWwindow* window = glfwCreateWindow(windowWidth, windowHeight, "Comp3016 CW2 BG", NULL, NULL);
 
     //Checks if window has been successfully instantiated
@@ -96,11 +96,15 @@ int main()
 
     //Loading of shaders
     Shader Shaders("shaders/vertexShader.vert", "shaders/fragmentShader.frag");
-    Model Rock("media/rock/Rock07-Base.obj");
+    //Model Rock("media/rock/Rock07-Base.obj"); 
+    Model House("media/house/brickHouse.obj"); 
+    Model Stairs("media/stairs/stairs.obj");
+    Model Decor("media/decor/table-and-chair.obj");
+    Model Grass("media/grass/grass.obj");
     Shaders.use();
 
     //Sets the viewport size within the window to match the window size of 1280x720
-    glViewport(0, 0, 1280, 720);
+    glViewport(0, 0, 1920, 1080);
 
     //Sets the framebuffer_size_callback() function as the callback for the window resizing event
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
@@ -132,19 +136,30 @@ int main()
         ProcessUserInput(window); //Takes user input
 
         //Rendering
-        glClearColor(0.25f, 0.0f, 1.0f, 1.0f); //Colour to display on cleared window
+        glClearColor(0.25f, 0.5f, 0.5f, 1.0f); //Colour to display on cleared window
         glClear(GL_COLOR_BUFFER_BIT); //Clears the colour buffer
         glClear(GL_DEPTH_BUFFER_BIT); //Might need
 
-        glEnable(GL_CULL_FACE); //Discards all back-facing triangles
+        
+       
+        //glCullFace(GL_FRONT);
+        //glFrontFace(GL_CW);
+        //glCullFace(GL_BACK);
+        //glFrontFace(GL_CCW); 
+        glEnable(GL_CULL_FACE);
+
 
         //Transformations
         mat4 view = lookAt(cameraPosition, cameraPosition + cameraFront, cameraUp); //Sets the position of the viewer, the movement direction in relation to it & the world up direction
         mat4 mvp = projection * view * model;
         Shaders.setMat4("mvpIn", mvp); //Setting of uniform with Shader class
 
-        //Drawing
-        Rock.Draw(Shaders);
+        //this is where the model is actual drawn into the enviroment
+        //Rock.Draw(Shaders);
+        House.Draw(Shaders);
+        Decor.Draw(Shaders);
+        Stairs.Draw(Shaders);
+        Grass.Draw(Shaders);
 
         //Refreshing
         glfwSwapBuffers(window); //Swaps the colour buffer
