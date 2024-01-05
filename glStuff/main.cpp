@@ -64,6 +64,7 @@ float deltaTime = 0.0f;
 //Last value of time change
 float lastFrame = 0.0f;
 
+
 int main()
 {
     //Initialisation of GLFW
@@ -106,25 +107,30 @@ int main()
     //Sets the viewport size within the window to match the window size of 1280x720
     glViewport(0, 0, 1920, 1080);
 
+
+
     //Sets the framebuffer_size_callback() function as the callback for the window resizing event
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     //Sets the mouse_callback() function as the callback for the mouse movement event
     glfwSetCursorPosCallback(window, mouse_callback);
 
-    //Model matrix
-    mat4 model = mat4(1.0f);
-    //Scaling to zoom in
-    model = scale(model, vec3(0.025f, 0.025f, 0.025f));
-    //Looking straight forward
-    model = rotate(model, radians(0.0f), vec3(1.0f, 0.0f, 0.0f));
-    //Elevation to look upon terrain
-    model = translate(model, vec3(0.0f, -2.f, -1.5f));
 
-    //Projection matrix
-    mat4 projection = perspective(radians(45.0f), (float)windowWidth / (float)windowHeight, 0.1f, 100.0f);
+        //Model matrix
+        mat4 model = mat4(2.0f);
+        //Scaling to zoom in
+        model = scale(model, vec3(0.025f, 0.025f, 0.025f));
+        //Looking straight forward
+        model = rotate(model, radians(0.0f), vec3(1.0f, 0.0f, 0.0f));
+        //Elevation to look upon terrain
+        model = translate(model, vec3(0.0f, 0.0f, 0.0f));
+
+        //Projection matrix
+        mat4 projection = perspective(radians(45.0f), (float)windowWidth / (float)windowHeight, 0.1f, 100.0f);
+
 
     //Render loop
+    
     while (glfwWindowShouldClose(window) == false)
     {
         //Time
@@ -136,17 +142,18 @@ int main()
         ProcessUserInput(window); //Takes user input
 
         //Rendering
-        glClearColor(0.25f, 0.5f, 0.5f, 1.0f); //Colour to display on cleared window
+        glClearColor(0.35f, 0.5f, 0.5f, 1.0f); //Colour on window
         glClear(GL_COLOR_BUFFER_BIT); //Clears the colour buffer
         glClear(GL_DEPTH_BUFFER_BIT); //Might need
 
-        
-       
-        //glCullFace(GL_FRONT);
+
         //glFrontFace(GL_CW);
         //glCullFace(GL_BACK);
-        //glFrontFace(GL_CCW); 
+         
+        glEnable(GL_DEPTH_TEST);//this was needed to not display object thru one and another
         glEnable(GL_CULL_FACE);
+        //glCullFace(GL_FRONT);
+        //glFrontFace(GL_CCW);
 
 
         //Transformations
@@ -156,15 +163,52 @@ int main()
 
         //this is where the model is actual drawn into the enviroment
         //Rock.Draw(Shaders);
-        House.Draw(Shaders);
-        Decor.Draw(Shaders);
-        Stairs.Draw(Shaders);
+
+        /* this is attmpting to to figure out how to move objects within the enviroment
+        glPushMatrix();
+        glRotatef(90., 1., 0., 0.);
+        gluCylinder(quad, 1, 1, 2, 36, 12);
+        glPopMatrix();*/
+
         Grass.Draw(Shaders);
+
+        //Elevation to look upon terrain
+        
+        model = translate(model, vec3(0.0f, 0.0f, 0.0f));
+        mvp = projection * view * model;
+        Shaders.setMat4("mvpIn", mvp);
+
+
+        House.Draw(Shaders);
+        model = translate(model, vec3(0.0f, 0.0f, 0.0f));
+        mvp = projection * view * model;
+        Shaders.setMat4("mvpIn", mvp);
+
+
+        model = translate(model, vec3(0.0f, 2.0f, -10.0f));
+        mvp = projection * view * model;
+        Shaders.setMat4("mvpIn", mvp);
+        Decor.Draw(Shaders);
+        model = translate(model, vec3(0.0f, -2.0f, 10.0f));
+        mvp = projection * view * model;
+        Shaders.setMat4("mvpIn", mvp);
+
+
+        model = translate(model, vec3(20.0f, 3.0f, 30.0f));
+        mvp = projection * view * model;
+        Shaders.setMat4("mvpIn", mvp);
+        Stairs.Draw(Shaders);
+        model = translate(model, vec3(-20.0f, -3.0f, -30.0f));
+        mvp = projection * view * model;
+        Shaders.setMat4("mvpIn", mvp);
+      
 
         //Refreshing
         glfwSwapBuffers(window); //Swaps the colour buffer
         glfwPollEvents(); //Queries all GLFW events
     }
+
+
 
     //Safely terminates GLFW
     glfwTerminate();
