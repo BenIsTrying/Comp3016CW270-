@@ -102,6 +102,7 @@ int main()
     Model Stairs("media/stairs/stairs.obj");
     Model Decor("media/decor/table-and-chair.obj");
     Model Grass("media/grass/grass.obj");
+    Model Art("media/art/art.obj");
     Shaders.use();
 
     //Sets the viewport size within the window to match the window size of 1280x720
@@ -172,9 +173,16 @@ int main()
 
         Grass.Draw(Shaders);
 
-        //Elevation to look upon terrain
+        /*
+        This is a very simple way of setting the location for each of the moddels used within the program.
+        the way translate works is by setting a loction insid ethe envirment and then drawign each of the modules (this also includes redrawing)
+        this means it will draw every mmodule in the same area makign it over crwoded and messy.
+        but I have it so it sets a new location after it draws a model so that they can be spaced apart, I also had to include
+        a negitiv version of movign the translate location of else each time it redraws it will appare in a further location from the player
+        this led to many times my building model would fly away
+        */
         
-        model = translate(model, vec3(0.0f, 0.0f, 0.0f));
+        model = translate(model, vec3(0.0f, 0.0f, 0.0f));//orginal location
         mvp = projection * view * model;
         Shaders.setMat4("mvpIn", mvp);
 
@@ -185,20 +193,28 @@ int main()
         Shaders.setMat4("mvpIn", mvp);
 
 
-        model = translate(model, vec3(0.0f, 2.0f, -10.0f));
+        model = translate(model, vec3(0.0f, 2.0f, -10.0f));//new cahnged location for spaning models
         mvp = projection * view * model;
         Shaders.setMat4("mvpIn", mvp);
         Decor.Draw(Shaders);
-        model = translate(model, vec3(0.0f, -2.0f, 10.0f));
+        model = translate(model, vec3(0.0f, -2.0f, 10.0f));//must go back to origin so mut be oposit of what ever additions were made before
         mvp = projection * view * model;
         Shaders.setMat4("mvpIn", mvp);
 
 
-        model = translate(model, vec3(20.0f, 3.0f, 30.0f));
+        model = translate(model, vec3(20.0f, 3.0f, 30.0f));// this is the location format of: X - Y - Z cords 
         mvp = projection * view * model;
         Shaders.setMat4("mvpIn", mvp);
         Stairs.Draw(Shaders);
         model = translate(model, vec3(-20.0f, -3.0f, -30.0f));
+        mvp = projection * view * model;
+        Shaders.setMat4("mvpIn", mvp);
+
+        model = translate(model, vec3(0.0f, 5.0f, 50.0f));//this has a high Z cordanate so that it appres outside the house and is more noticable
+        mvp = projection * view * model;
+        Shaders.setMat4("mvpIn", mvp);
+        Art.Draw(Shaders);
+        model = translate(model, vec3(0.0f, -5.0f, -50.0f));//sets back to zero for next loop
         mvp = projection * view * model;
         Shaders.setMat4("mvpIn", mvp);
       
