@@ -129,7 +129,7 @@ I started with Lab 9 in which we learned how to import 3D objects into OpenGL an
 I then added more modules including a text module which has my name and CW2.  
 
 
-## Screenshots of development 
+## Motes from development 
 
 
 Custom models from blender ported without proper rendering of textures. 
