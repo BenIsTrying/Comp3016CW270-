@@ -81,6 +81,10 @@ Low poly model with text used for user interaction and refernse to CW1.
 Simple cube object with hallowed inside and gaps to work as the indoors, window and front door.
 ![BrickHouseObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/7587dd52-ac43-45e1-97ec-a70fda2dd947)
 
+
+# Video Link:
+https://youtu.be/9I2GSpfaopE
+
 ### Text - 
 Basic module of text on how to spawn the guy.
 ![TextObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/54c44dc8-3ebd-4244-8826-61ea22caa8cc)
