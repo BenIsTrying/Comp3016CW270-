@@ -3,6 +3,8 @@ COMP 3016 CW2
 # OpenGL
 This project uses OpenGL to make a 3D enviroment and spawn in custom 3D models
 
+github: https://github.com/BenIsTrying/Comp3016CW270-.git
+
 ​ 
 
 
