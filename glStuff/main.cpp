@@ -64,6 +64,8 @@ float deltaTime = 0.0f;
 //Last value of time change
 float lastFrame = 0.0f;
 
+bool IsJPressed = false;
+
 
 int main()
 {
@@ -103,6 +105,8 @@ int main()
     Model Decor("media/decor/table-and-chair.obj");
     Model Grass("media/grass/grass.obj");
     Model Art("media/art/art.obj");
+    Model Text("media/text/text.obj"); // instruction within the world
+    Model Guy("media/Guy/guy.obj");
     Shaders.use();
 
     //Sets the viewport size within the window to match the window size of 1280x720
@@ -126,8 +130,16 @@ int main()
         //Elevation to look upon terrain
         model = translate(model, vec3(0.0f, 0.0f, 0.0f));
 
+
         //Projection matrix
         mat4 projection = perspective(radians(45.0f), (float)windowWidth / (float)windowHeight, 0.1f, 100.0f);
+
+
+
+        
+
+
+
 
 
     //Render loop
@@ -156,6 +168,8 @@ int main()
         //glCullFace(GL_FRONT);
         //glFrontFace(GL_CCW);
 
+ 
+
 
         //Transformations
         mat4 view = lookAt(cameraPosition, cameraPosition + cameraFront, cameraUp); //Sets the position of the viewer, the movement direction in relation to it & the world up direction
@@ -170,6 +184,8 @@ int main()
         glRotatef(90., 1., 0., 0.);
         gluCylinder(quad, 1, 1, 2, 36, 12);
         glPopMatrix();*/
+
+
 
         Grass.Draw(Shaders);
 
@@ -192,7 +208,7 @@ int main()
         mvp = projection * view * model;
         Shaders.setMat4("mvpIn", mvp);
 
-
+        
         model = translate(model, vec3(0.0f, 2.0f, -10.0f));//new cahnged location for spaning models
         mvp = projection * view * model;
         Shaders.setMat4("mvpIn", mvp);
@@ -210,6 +226,7 @@ int main()
         mvp = projection * view * model;
         Shaders.setMat4("mvpIn", mvp);
 
+
         model = translate(model, vec3(0.0f, 5.0f, 50.0f));//this has a high Z cordanate so that it appres outside the house and is more noticable
         mvp = projection * view * model;
         Shaders.setMat4("mvpIn", mvp);
@@ -217,7 +234,25 @@ int main()
         model = translate(model, vec3(0.0f, -5.0f, -50.0f));//sets back to zero for next loop
         mvp = projection * view * model;
         Shaders.setMat4("mvpIn", mvp);
-      
+
+        model = translate(model, vec3(33.0f, 10.0f, 0.0f));//this has a high Z cordanate so that it appres outside the house and is more noticable
+        mvp = projection * view * model;
+        Shaders.setMat4("mvpIn", mvp);
+        Text.Draw(Shaders);
+        model = translate(model, vec3(-33.0f, -10.0f, 0.0f));//sets back to zero for next loop
+        mvp = projection * view * model;
+        Shaders.setMat4("mvpIn", mvp);
+        
+        if (IsJPressed == true) {
+            model = translate(model, vec3(0.0f, 10.0f, 0.0f));//new cahnged location for spaning models
+            mvp = projection * view * model;
+            Shaders.setMat4("mvpIn", mvp);
+            Guy.Draw(Shaders);
+            model = translate(model, vec3(0.0f, -10.0f, 0.0f));//must go back to origin so mut be oposit of what ever additions were made before
+            mvp = projection * view * model;
+            Shaders.setMat4("mvpIn", mvp);
+
+        }
 
         //Refreshing
         glfwSwapBuffers(window); //Swaps the colour buffer
@@ -310,4 +345,16 @@ void ProcessUserInput(GLFWwindow* WindowIn)
     {
         cameraPosition += normalize(cross(cameraFront, cameraUp)) * movementSpeed;
     }
+
+    if (glfwGetKey(WindowIn, GLFW_KEY_J) == GLFW_PRESS)
+    {
+        if (IsJPressed == true) {
+            IsJPressed = false;
+        }
+        else {
+            IsJPressed = true;
+        }
+        
+    }
+
 }
