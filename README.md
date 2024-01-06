@@ -54,3 +54,26 @@ Repeats for all remaining models (17, 18, 19.)
 Refreshes. 
 
 Terminates window. 
+
+# Models used
+
+### Stairs -
+![StairsObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/778b1d30-e7cc-4475-87b1-afcfac2b2341)
+
+### Art -
+![ArtObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/cfb78dbe-16df-409d-88ba-59436da82686)
+
+### Decor - 
+![DecorObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/6cc1b6a6-7eaf-4538-9bd1-0ac741327799)
+
+### Grass - 
+![GrassObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/ec2df481-e983-473f-aefe-abe86b584570)
+
+### Guy - 
+![GuyObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/5923d9fb-9b4f-4a9c-91da-04232241a813)
+
+### BrickHouse - 
+![BrickHouseObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/7587dd52-ac43-45e1-97ec-a70fda2dd947)
+
+### Text - 
+![TextObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/54c44dc8-3ebd-4244-8826-61ea22caa8cc)
