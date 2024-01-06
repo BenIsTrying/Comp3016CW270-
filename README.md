@@ -57,23 +57,30 @@ Terminates window.
 
 # Models used
 
-### Stairs -
+### Stairs - 
+Basic stairs with a dark wood texture.
 ![StairsObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/778b1d30-e7cc-4475-87b1-afcfac2b2341)
 
 ### Art -
+Basic text for my sginiture and to verify the work is mine.
 ![ArtObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/cfb78dbe-16df-409d-88ba-59436da82686)
 
 ### Decor - 
+Set of table and chair usign the wood and dark wood texture respectfuly,
 ![DecorObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/6cc1b6a6-7eaf-4538-9bd1-0ac741327799)
 
 ### Grass - 
+Large plane of grass using close up of grass blades as the texture.
 ![GrassObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/ec2df481-e983-473f-aefe-abe86b584570)
 
 ### Guy - 
+Low poly model with text used for user interaction and refernse to CW1.
 ![GuyObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/5923d9fb-9b4f-4a9c-91da-04232241a813)
 
 ### BrickHouse - 
+Simple cube object with hallowed inside and gaps to work as the indoors, window and front door.
 ![BrickHouseObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/7587dd52-ac43-45e1-97ec-a70fda2dd947)
 
 ### Text - 
+Basic module of text on how to spawn the guy.
 ![TextObj](https://github.com/BenIsTrying/Comp3016CW270-/assets/91667148/54c44dc8-3ebd-4244-8826-61ea22caa8cc)
